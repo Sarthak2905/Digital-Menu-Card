@@ -107,7 +107,7 @@ const menuItems = [
   },
   {
     name: 'Chocolate Lava Cake',
-    description: 'Warm chocolate cake with a molten centre, served with ice cream',
+    description: 'Warm chocolate cake with a molten center, served with ice cream',
     price: 280,
     category: 'Desserts',
     type: 'Veg',

@@ -43,8 +43,7 @@ export default function MenuManagement() {
 
   const openEdit = (item: MenuItem) => {
     setEditItem(item);
-    const { _id, ...rest } = item;
-    void _id;
+    const { _id: _, ...rest } = item;
     setForm(rest);
     setShowModal(true);
   };
