@@ -4,12 +4,12 @@ import type { MenuItem } from '../types';
 import toast from 'react-hot-toast';
 
 const EMPTY_FORM: Omit<MenuItem, '_id'> = {
-  name: 'cappuccino',
+  name: '',
   description: '',
-  price: 80,
-  category: 'Beverages',
-  type: 'Veg',
-  image: '/menu-images/cappuccino.jpg',
+  price: ,
+  category: '',
+  type: '',
+  image: '',
   available: true,
   popular: false,
 };
