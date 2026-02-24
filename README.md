@@ -63,6 +63,19 @@ Admin panel runs at **http://localhost:5174**.
 
 ---
 
+## Default Credentials
+
+### Admin Panel (`http://localhost:5174`)
+
+| Field | Value |
+|---|---|
+| **Email** | `admin@digitalcafe.com` |
+| **Password** | `Admin@123` |
+
+> These are the default values set in `.env.example`. The admin account is created automatically when the backend server starts for the first time. You can change them by editing `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `server/.env` before the first run.
+
+---
+
 ## Environment Variables
 
 Copy `.env.example` to `server/.env` and fill in the values:
