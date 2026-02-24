@@ -153,3 +153,17 @@ cd admin && npm run build
 ```
 
 The built frontend files can be served as static assets from the Express server or a CDN.
+
+---
+
+## Contributing & Making Changes
+
+Want to add a new feature, fix a bug, or tweak the design? See **[CONTRIBUTING.md](./CONTRIBUTING.md)** for step-by-step guides covering:
+
+- [Running everything locally](./CONTRIBUTING.md#3-running-the-project-locally)
+- [Adding a new API endpoint](./CONTRIBUTING.md#4-how-to-add-a-new-backend-api-endpoint)
+- [Adding a new database field](./CONTRIBUTING.md#5-how-to-add-a-new-database-field--model-change)
+- [Adding a new page to the customer app](./CONTRIBUTING.md#6-how-to-add-a-new-page-customer-app)
+- [Adding a new page to the admin panel](./CONTRIBUTING.md#7-how-to-add-a-new-page-admin-panel)
+- [Adding a coupon code or menu category](./CONTRIBUTING.md#8-how-to-add-a-new-menu-item-category-or-coupon)
+- [Changing colours / theme](./CONTRIBUTING.md#9-how-to-change-the-visual-theme--colours)
