@@ -33,17 +33,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = useCallback(async (email: string, password: string) => {
     const res = await api.post('/api/auth/login', { email, password });
-    const data = res.data;
-    if (data.role !== 'admin') {
+    const { token, user: userData } = res.data as {
+      token: string;
+      user: { id: string; name: string; email: string; role: string };
+    };
+    if (userData.role !== 'admin') {
       toast.error('Access denied. Admin accounts only.');
       throw new Error('Not an admin');
     }
     const user: AdminUser = {
-      id: data._id || data.id,
-      name: data.name,
-      email: data.email,
-      role: data.role,
-      token: data.token,
+      id: userData.id,
+      name: userData.name,
+      email: userData.email,
+      role: userData.role,
+      token,
     };
     localStorage.setItem('cafe_admin', JSON.stringify(user));
     setAdmin(user);
