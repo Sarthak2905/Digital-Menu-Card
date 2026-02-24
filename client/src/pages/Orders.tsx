@@ -78,6 +78,11 @@ const Orders: React.FC = () => {
                           </div>
                         ))}
                         <p className="order-meta">Payment: {order.paymentMethod}</p>
+                        {order.orderType === 'Dine-In' ? (
+                          <p className="order-meta">🪑 Dine-In — Table <strong>{order.tableNumber}</strong></p>
+                        ) : (
+                          <p className="order-meta">🚚 Delivery</p>
+                        )}
                         {order.status !== 'Delivered' && (
                           <Link to={`/track/${order._id}`} className="btn-secondary btn-sm" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
                             Track Order

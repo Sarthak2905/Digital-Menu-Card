@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import MenuManagement from './pages/MenuManagement';
 import OrderManagement from './pages/OrderManagement';
 import Analytics from './pages/Analytics';
+import TableQR from './pages/TableQR';
 
 function AdminLayout() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="menu" element={<MenuManagement />} />
             <Route path="orders" element={<OrderManagement />} />
             <Route path="analytics" element={<Analytics />} />
+            <Route path="tables" element={<TableQR />} />
           </Route>
           <Route path="*" element={<Navigate to="/admin" replace />} />
         </Routes>

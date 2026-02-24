@@ -75,6 +75,7 @@ export default function OrderManagement() {
               <th>Order ID</th>
               <th>Customer</th>
               <th>Date</th>
+              <th>Type</th>
               <th>Items</th>
               <th>Total</th>
               <th>Payment</th>
@@ -89,6 +90,11 @@ export default function OrderManagement() {
                   <td className="order-id">#{order._id.slice(-6).toUpperCase()}</td>
                   <td>{order.user?.name ?? 'N/A'}</td>
                   <td>{new Date(order.createdAt).toLocaleDateString('en-IN')}</td>
+                  <td>
+                    {order.orderType === 'Dine-In'
+                      ? <span className="badge badge-dinein" aria-label={`Dine-in at table ${order.tableNumber ?? ''}`}>🪑 Table {order.tableNumber ?? '—'}</span>
+                      : <span className="badge badge-delivery" aria-label="Delivery order">🚚 Delivery</span>}
+                  </td>
                   <td>{order.items.length} item{order.items.length !== 1 ? 's' : ''}</td>
                   <td>₹{order.total.toFixed(2)}</td>
                   <td><span className="badge badge-payment">{order.paymentMethod}</span></td>
@@ -113,7 +119,7 @@ export default function OrderManagement() {
                 </tr>
                 {expanded === order._id && (
                   <tr key={`${order._id}-detail`} className="expanded-row">
-                    <td colSpan={8}>
+                    <td colSpan={9}>
                       <div className="order-detail">
                         <div className="order-detail-section">
                           <strong>Items:</strong>
@@ -124,8 +130,12 @@ export default function OrderManagement() {
                           </ul>
                         </div>
                         <div className="order-detail-section">
-                          <strong>Delivery Address:</strong>
-                          <p>{order.deliveryAddress?.street}, {order.deliveryAddress?.city} - {order.deliveryAddress?.pincode}</p>
+                          {order.orderType === 'Dine-In' ? (
+                            <><strong>Order Type:</strong> <span>🪑 Dine-In — Table {order.tableNumber}</span></>
+                          ) : (
+                            <><strong>Delivery Address:</strong>
+                            <p>{order.deliveryAddress?.street}, {order.deliveryAddress?.city} - {order.deliveryAddress?.pincode}</p></>
+                          )}
                         </div>
                         <div className="order-detail-section">
                           <strong>Subtotal:</strong> ₹{order.subtotal?.toFixed(2)} |{' '}
@@ -141,7 +151,7 @@ export default function OrderManagement() {
             ))}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={8} className="empty-row">No orders found</td>
+                <td colSpan={9} className="empty-row">No orders found</td>
               </tr>
             )}
           </tbody>

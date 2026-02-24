@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { MdDashboard, MdRestaurantMenu, MdShoppingCart, MdBarChart, MdLogout } from 'react-icons/md';
+import { MdDashboard, MdRestaurantMenu, MdShoppingCart, MdBarChart, MdLogout, MdQrCode2 } from 'react-icons/md';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
 
@@ -8,6 +8,7 @@ const navItems = [
   { to: '/admin/menu', label: 'Menu Management', icon: MdRestaurantMenu },
   { to: '/admin/orders', label: 'Orders', icon: MdShoppingCart },
   { to: '/admin/analytics', label: 'Analytics', icon: MdBarChart },
+  { to: '/admin/tables', label: 'Table QR Codes', icon: MdQrCode2 },
 ];
 
 export default function Sidebar() {

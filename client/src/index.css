@@ -632,3 +632,63 @@ textarea.form-input { resize: vertical; }
   .hero-btns { flex-direction: column; align-items: center; }
   .tracking-steps { justify-content: flex-start; }
 }
+
+/* ============================================
+   DINE-IN / QR TABLE ORDERING
+   ============================================ */
+.table-banner {
+  background: var(--secondary);
+  color: var(--primary);
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.table-banner-clear {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.order-type-toggle {
+  display: flex;
+  gap: 1rem;
+  margin: 0.75rem 0 1.5rem;
+}
+.order-type-btn {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-light);
+}
+.order-type-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.dine-in-section { margin-top: 0.5rem; }
+.dine-in-note {
+  margin-top: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.table-number-input { max-width: 120px; }
+.checkout-table-note {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}

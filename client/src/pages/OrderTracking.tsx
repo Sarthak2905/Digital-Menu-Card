@@ -85,9 +85,13 @@ const OrderTracking: React.FC = () => {
               <div className="summary-row total"><span>Total</span><span>₹{order.total.toFixed(2)}</span></div>
             </div>
             <p className="order-meta">Payment: {order.paymentMethod} | {order.paymentStatus}</p>
-            <p className="order-meta">
-              Delivery to: {order.deliveryAddress.street}, {order.deliveryAddress.city} – {order.deliveryAddress.pincode}
-            </p>
+            {order.orderType === 'Dine-In' ? (
+              <p className="order-meta">🪑 Dine-In — Table <strong>{order.tableNumber}</strong></p>
+            ) : (
+              <p className="order-meta">
+                Delivery to: {order.deliveryAddress.street}, {order.deliveryAddress.city} – {order.deliveryAddress.pincode}
+              </p>
+            )}
             <p className="order-refresh-note">🔄 Status refreshes every 10 seconds</p>
           </div>
         </div>

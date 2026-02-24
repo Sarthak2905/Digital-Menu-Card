@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import api from '../api/axios';
 import type { MenuItem } from '../types';
 import MenuCard from '../components/MenuCard';
@@ -14,6 +16,21 @@ const Menu: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<FilterType>('All');
+  const [tableNumber, setTableNumber] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+
+  // Read ?table=N from QR code scan and persist it
+  useEffect(() => {
+    const tableParam = searchParams.get('table');
+    if (tableParam && /^\d+$/.test(tableParam)) {
+      localStorage.setItem('cafe_table', tableParam);
+      setTableNumber(tableParam);
+      toast.success(`Welcome! You're ordering for Table ${tableParam} — your order goes straight to your table.`, { duration: 4000 });
+    } else {
+      const stored = localStorage.getItem('cafe_table');
+      if (stored) setTableNumber(stored);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     api.get('/api/menu')
@@ -42,6 +59,18 @@ const Menu: React.FC = () => {
           <p>Explore our full range of handcrafted delights</p>
         </motion.div>
       </section>
+
+      {tableNumber && (
+        <div className="table-banner">
+          🪑 You're ordering for <strong>Table {tableNumber}</strong> — items go straight to your table!
+          <button
+            className="table-banner-clear"
+            onClick={() => { localStorage.removeItem('cafe_table'); setTableNumber(null); }}
+          >
+            ✕ Clear
+          </button>
+        </div>
+      )}
 
       <section className="section">
         <div className="container">

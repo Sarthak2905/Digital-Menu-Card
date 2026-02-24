@@ -714,3 +714,31 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   }
   .sidebar-logo span { display: none; }
 }
+
+/* ============================================
+   TABLE QR CODES
+   ============================================ */
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.qr-card {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.qr-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.qr-card h3 { color: var(--primary); margin: 0.75rem 0 0.25rem; font-size: 1rem; }
+.qr-card p { color: var(--text-muted); font-size: 0.8rem; margin: 0; }
+.badge-dinein {
+  background: #d1fae5;
+  color: #065f46;
+}
+.badge-delivery {
+  background: #dbeafe;
+  color: #1e40af;
+}

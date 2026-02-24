@@ -22,6 +22,8 @@ export interface IOrder extends Document {
   couponCode: string;
   paymentMethod: 'COD' | 'UPI';
   paymentStatus: 'pending' | 'paid';
+  orderType: 'Dine-In' | 'Delivery';
+  tableNumber?: number;
   status: 'Placed' | 'Preparing' | 'Out for delivery' | 'Delivered';
   deliveryAddress: IDeliveryAddress;
   createdAt: Date;
@@ -48,6 +50,8 @@ const OrderSchema = new Schema<IOrder>(
     couponCode: { type: String, default: '' },
     paymentMethod: { type: String, enum: ['COD', 'UPI'], required: true },
     paymentStatus: { type: String, enum: ['pending', 'paid'], default: 'pending' },
+    orderType: { type: String, enum: ['Dine-In', 'Delivery'], default: 'Delivery' },
+    tableNumber: { type: Number, default: null },
     status: {
       type: String,
       enum: ['Placed', 'Preparing', 'Out for delivery', 'Delivered'],

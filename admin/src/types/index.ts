@@ -25,6 +25,8 @@ export interface Order {
   total: number;
   couponCode?: string;
   paymentMethod: 'COD' | 'UPI';
+  orderType?: 'Dine-In' | 'Delivery';
+  tableNumber?: number;
   status: 'Placed' | 'Preparing' | 'Out for delivery' | 'Delivered';
   deliveryAddress: { street: string; city: string; pincode: string };
   createdAt: string;
