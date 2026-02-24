@@ -6,9 +6,9 @@ import toast from 'react-hot-toast';
 const EMPTY_FORM: Omit<MenuItem, '_id'> = {
   name: '',
   description: '',
-  price: ,
-  category: '',
-  type: '',
+  price: 0,
+  category: 'Beverages',
+  type: 'Veg',
   image: '',
   available: true,
   popular: false,
