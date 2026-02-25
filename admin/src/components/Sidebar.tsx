@@ -24,7 +24,7 @@ export default function Sidebar() {
   return (
     <aside className={`sidebar${collapsed ? ' sidebar--collapsed' : ''}`}>
       <div className="sidebar-header">
-        <span className="sidebar-logo">☕ {!collapsed && 'Digital Café Admin'}</span>
+        <span className="sidebar-logo">☕ {!collapsed && "Durga's Café Admin"}</span>
         <button className="sidebar-toggle" onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">
           {collapsed ? '→' : '←'}
         </button>
