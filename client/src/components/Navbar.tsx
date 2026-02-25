@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
       <nav className="navbar">
         <div className="navbar-inner">
           <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
-            ☕ Digital Café
+            ☕ Durgas's Cafe
           </Link>
 
           <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>

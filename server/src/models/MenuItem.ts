@@ -4,7 +4,7 @@ export interface IMenuItem extends Document {
   name: string;
   description: string;
   price: number;
-  category: 'Beverages' | 'Food' | 'Desserts' | 'Snacks';
+  category: 'Beverages' | 'Food' | 'Desserts' | 'Snacks' | 'Cold Drinks';
   type: 'Veg' | 'Non-Veg';
   image: string;
   available: boolean;
@@ -19,7 +19,7 @@ const MenuItemSchema = new Schema<IMenuItem>(
     price: { type: Number, required: true },
     category: {
       type: String,
-      enum: ['Beverages', 'Food', 'Desserts', 'Snacks'],
+      enum: ['Beverages', 'Food', 'Desserts', 'Snacks', 'Cold Drinks'],
       required: true,
     },
     type: { type: String, enum: ['Veg', 'Non-Veg'], required: true },

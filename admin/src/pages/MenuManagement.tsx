@@ -160,20 +160,21 @@ export default function MenuManagement() {
                 <label>Description</label>
                 <textarea value={form.description} onChange={(e) => updateForm('description', e.target.value)} rows={2} />
               </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Category</label>
-                  <select value={form.category} onChange={(e) => updateForm('category', e.target.value)}>
-                    {['Beverages', 'Food', 'Desserts', 'Snacks'].map((c) => <option key={c}>{c}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Type</label>
-                  <select value={form.type} onChange={(e) => updateForm('type', e.target.value)}>
-                    <option>Veg</option>
-                    <option>Non-Veg</option>
-                  </select>
-                </div>
+              <div className="form-group">
+                <label>Category</label>
+                <select value={form.category} onChange={(e) => updateForm('category', e.target.value)}>
+                  {CATEGORIES.map((cat) => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Type</label>
+                <select value={form.type} onChange={(e) => updateForm('type', e.target.value)}>
+                  {TYPES.map((type) => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
               </div>
               <div className="form-group">
                 <label>Image URL</label>
@@ -200,3 +201,6 @@ export default function MenuManagement() {
     </div>
   );
 }
+
+const CATEGORIES = ['Beverages', 'Food', 'Desserts', 'Snacks' ,'Cold Drinks'];
+const TYPES = ['Veg', 'Non-Veg'];

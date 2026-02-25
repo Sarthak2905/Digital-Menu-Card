@@ -7,9 +7,9 @@ import type { MenuItem } from '../types';
 import MenuCard from '../components/MenuCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-type FilterType = 'All' | 'Veg' | 'Non-Veg' | 'Beverages' | 'Food' | 'Desserts' | 'Snacks';
+type FilterType = 'All' | 'Veg' | 'Non-Veg' | 'Beverages' | 'Food' | 'Desserts' | 'Snacks' | 'Cold Drinks';
 
-const FILTERS: FilterType[] = ['All', 'Veg', 'Non-Veg', 'Beverages', 'Food', 'Desserts', 'Snacks'];
+const FILTERS: FilterType[] = ['All', 'Veg', 'Non-Veg', 'Beverages', 'Food', 'Desserts', 'Snacks', 'Cold Drinks'];
 
 const Menu: React.FC = () => {
   const [items, setItems] = useState<MenuItem[]>([]);
